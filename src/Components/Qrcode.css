@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Jost", sans-serif;
+    height: 100vh;
+    background-image: url("Forest-Backgrounds-HD-Desktop.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.app-container {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 5px 10px 20px 0px rgb(94, 93, 93);
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 20px 10px 20px 10px;
+}
+
+.Qrimage {
+    padding: 5px;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+}
+
+.input-lable {
+    display: block;
+    margin-bottom: 8px;
+    color:  rgb(126, 126, 251);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+input[type="text"] {
+    padding: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    border: 3px solid rgb(107, 107, 241);
+    border-radius: 5px;
+}
+
+button {
+    padding: 15px 20px;
+    font-size: 18px;
+    color: #fff;
+    margin: 0px 5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.generate-button {
+    background-color: rgb(84, 84, 242);
+    transition: 0.4s;
+}
+
+.generate-button:hover {
+    transform: translateY(-5px);
+    transition: 0.4s;
+}
+
+.download-button {
+    background-color: green;
+    transition: 0.4s;
+}
+
+.download-button:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.4s;
+}
+
+.app-container h1 {
+    font-weight: 400;
+    color: rgb(164, 164, 255);
+    border-bottom: 1px solid #4f4d4d;
+    padding: 10px 0px;
+}
+
+.app-container p {
+    text-align: center;
+}
+.error{
+    color: rgb(255, 0, 0);
+    font-size: 20px;
+    font-weight: 600;
+}
+@media(max-width:720px){
+    .app-container{
+        width: 300px;
+    }
+    input[type="text"]{
+        width: 270px;
+    }
+    button{
+        width: 100px;
+        font-size: 13px;
+        padding: 5px;
+    }
+}

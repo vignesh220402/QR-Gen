@@ -98,7 +98,7 @@ const App = () => {
                         <input type="text" ref={changed} value={qrdata} id='dataInput' onChange={(event) => setqrdata(event.target.value)} />
                         <label htmlFor="sizeInput" className='input-lable'>Img Size(e.g.,150)</label>
                         <input type="number" value={qrsize} ref={changed} id='sizeInput' onChange={(event) => setqrsize(event.target.value)} />
-                        <button className='generate-button' disabled={loading} onClick={onclicking}>Generate QR Code</button>
+                        <button className='generate-button' onClick={onclicking}>Generate QR Code</button>
                         <button className='download-button' onClick={download}>Download QR Code</button>
                         <button style={{ color: "black" }} onClick={clear}>Reset</button>
                         <p style={{ textAlign: "right" }}>@By Vignesivam</p>

@@ -118,6 +118,9 @@ button {
     input[type="text"] {
         width: 270px;
     }
+    input[type="number"] {
+        width: 270px;
+    }
 
     button {
         width: 100px;

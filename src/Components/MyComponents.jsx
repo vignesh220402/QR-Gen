@@ -3,17 +3,20 @@ import './Qrcode.css'
 const App = () => {
     const [img, setimg] = useState("")
     const [loading, setloading] = useState(false)
+    const [logo,setlogo]=useState("WhatsApp Image 2025-03-30 at 19.05.28_1e7d7c05.jpg")
     const [qrdata, setqrdata] = useState("")
     const [qrsize, setqrsize] = useState()
     const [errorsec, seterrorsec] = useState("");
     const [success, setsuccess] = useState("")
     const changed = useRef("")
+    const changing = useRef("")
     function onclicking() {
         if (!qrdata) {
             seterrorsec("Please provide data for the QR code !");
             let input = document.getElementById("dataInput")
             input.style.border = "solid red 2px"
-            changed.current.placeholder = "Data Required!"
+            changing.current.placeholder = "Data Required!"
+            changed.current.placeholder = "Size required!"
             setimg("")
             return;
         } else if (!qrsize) {
@@ -34,8 +37,9 @@ const App = () => {
             let Sizeinput = document.getElementById("sizeInput")
             Sizeinput.style.border = "solid  rgb(58, 174, 0) 2px"
             setimg(url)
+            setlogo("")
             console.log("running");
-            
+
         } catch (error) {
             console.log('error QR', error);
 
@@ -48,7 +52,9 @@ const App = () => {
         setqrdata("")
         setqrsize("")
         setsuccess("")
+        setlogo("WhatsApp Image 2025-03-30 at 19.05.28_1e7d7c05.jpg")
         changed.current.placeholder = ""
+        changing.current.placeholder = ""
         seterrorsec("")
         let input = document.getElementById("dataInput")
         input.style.border = "solid rgb(58, 174, 0) 2px"
@@ -68,7 +74,6 @@ const App = () => {
         }
 
         seterrorsec(""); // Clear any error if validation passes
-
         fetch(img)
             .then((response) => response.blob())
             .then((blob) => {
@@ -78,6 +83,7 @@ const App = () => {
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
+                setlogo("")
             })
             .catch((error) => {
                 console.log("Error in downloading QR Code", error);
@@ -86,8 +92,10 @@ const App = () => {
 
     return (
         <>
+
             <div className="main-container">
                 <div className='app-container'>
+                    <img src={logo} alt="" style={{width:"160px"}}/>
                     <h1>QR code Generater</h1>
                     {errorsec && <p className="error">{errorsec}</p>}
                     {success && <h1>Take Your QR CODE</h1>}
@@ -95,7 +103,7 @@ const App = () => {
                     {img && <img src={img} className='Qrimage' />}
                     <div>
                         <label htmlFor="dataInput" className='input-lable'>Data for Qr code</label>
-                        <input type="text" ref={changed} value={qrdata} id='dataInput' onChange={(event) => setqrdata(event.target.value)} />
+                        <input type="text" ref={changing} value={qrdata} id='dataInput' onChange={(event) => setqrdata(event.target.value)} />
                         <label htmlFor="sizeInput" className='input-lable'>Img Size(e.g.,150)</label>
                         <input type="number" value={qrsize} ref={changed} id='sizeInput' onChange={(event) => setqrsize(event.target.value)} />
                         <button className='generate-button' onClick={onclicking}>Generate QR Code</button>

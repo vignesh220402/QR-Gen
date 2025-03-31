@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import './Qrcode.css'
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import NaviBar from './NavigationBar/Navi';
 const App = () => {
     const [img, setimg] = useState("")
     const [loading, setloading] = useState(false)
@@ -51,6 +52,7 @@ const App = () => {
             setloading(false)
         }
     }
+    let successs="UPLODED"
     function clear() {
         setimg("")
         setqrdata("")
@@ -97,11 +99,10 @@ const App = () => {
 
     return (
         <>
-
+        <NaviBar/>
             <div className="main-container">
 
                 <div className='app-container'>
-
                     <img src={logo} className='logoimg' style={{ width: "160px" }} />
                     <h1>QR code Generater</h1>
                     {errorsec && <p className="error">{errorsec}</p>}
@@ -121,7 +122,7 @@ const App = () => {
                 </div>
             </div>
             <div className="endload" style={{ marginTop: "-100px", padding: "10px" }}>
-                {loading ? null : <ProgressBar now={connect} />}
+            <ProgressBar now={connect} label={`${successs}%`} />;
             </div>
 
         </>

@@ -1,7 +1,8 @@
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 function NavigationBar() {
-  return <ProgressBar now={60} />;
+  const now = 60;
+  return <ProgressBar now={now} label={`${now}%`} />;
 }
 
 export default NavigationBar;

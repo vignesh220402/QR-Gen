@@ -120,7 +120,7 @@ const App = () => {
                     </div>
                 </div>
             </div>
-            <div className="endload" style={{ marginTop: "-50px", padding: "10px" }}>
+            <div className="endload" style={{ marginTop: "-100px", padding: "10px" }}>
                 {loading ? null : <ProgressBar now={connect} />}
             </div>
 

@@ -14,9 +14,11 @@
 .endload{
     width: 500px;
     margin-left: 500px;
+
 }
 .app-container {
     width: 800px;
+    height: 600px;
     display: flex;
     justify-content: center;
     flex-direction: column;

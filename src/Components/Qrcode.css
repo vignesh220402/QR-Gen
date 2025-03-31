@@ -8,7 +8,13 @@
     font-family: "Jost", sans-serif;
     height: 100vh;
 }
-
+.resetbtn{
+    color: black;
+}
+.endload{
+    width: 500px;
+    margin-left: 500px;
+}
 .app-container {
     width: 800px;
     display: flex;
@@ -72,7 +78,7 @@ button {
 }
 
 .generate-button {
-    background-color: rgb(84, 84, 242);
+    background-color:rgb(170, 165, 165);
     transition: 0.4s;
 }
 
@@ -82,8 +88,9 @@ button {
 }
 
 .download-button {
-    background-color: green;
+    background-color: rgb(140, 230, 140);
     transition: 0.4s;
+
 }
 
 .download-button:hover {
@@ -117,10 +124,18 @@ button {
     input[type="text"] {
         width: 270px;
     }
+    .endload{
+        margin-left: 0px;
+        width: 100%;
+    }
     input[type="number"] {
         width: 270px;
     }
-
+    .resetbtn{
+        padding: 12px;
+        background-color: black;
+        color: white;
+    }
     button {
         width: 100px;
         font-size: 13px;

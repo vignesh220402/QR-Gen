@@ -1,15 +1,17 @@
 import React, { useRef, useState } from 'react'
 import './Qrcode.css'
+import ProgressBar from 'react-bootstrap/ProgressBar';
 const App = () => {
     const [img, setimg] = useState("")
     const [loading, setloading] = useState(false)
-    const [logo,setlogo]=useState("WhatsApp Image 2025-03-30 at 19.05.28_1e7d7c05.jpg")
+    const [logo, setlogo] = useState("WhatsApp Image 2025-03-30 at 19.05.28_1e7d7c05.jpg")
     const [qrdata, setqrdata] = useState("")
     const [qrsize, setqrsize] = useState()
     const [errorsec, seterrorsec] = useState("");
     const [success, setsuccess] = useState("")
     const changed = useRef("")
     const changing = useRef("")
+    const [connect, setconnect] = useState("")
     function onclicking() {
         if (!qrdata) {
             seterrorsec("Please provide data for the QR code !");
@@ -27,6 +29,8 @@ const App = () => {
             changed.current.placeholder = "Size required!"
             return;
         }
+  
+
         seterrorsec("");
         setloading(true)
         try {
@@ -38,7 +42,7 @@ const App = () => {
             Sizeinput.style.border = "solid  rgb(58, 174, 0) 2px"
             setimg(url)
             setlogo("")
-            console.log("running");
+            setconnect("100")
 
         } catch (error) {
             console.log('error QR', error);
@@ -56,6 +60,7 @@ const App = () => {
         changed.current.placeholder = ""
         changing.current.placeholder = ""
         seterrorsec("")
+        setconnect("")
         let input = document.getElementById("dataInput")
         input.style.border = "solid rgb(58, 174, 0) 2px"
         let Sizeinput = document.getElementById("sizeInput")
@@ -94,8 +99,10 @@ const App = () => {
         <>
 
             <div className="main-container">
+
                 <div className='app-container'>
-                    <img src={logo} alt="" style={{width:"160px"}}/>
+
+                    <img src={logo} className='logoimg' style={{ width: "160px" }} />
                     <h1>QR code Generater</h1>
                     {errorsec && <p className="error">{errorsec}</p>}
                     {success && <h1>Take Your QR CODE</h1>}
@@ -108,11 +115,15 @@ const App = () => {
                         <input type="number" value={qrsize} ref={changed} id='sizeInput' onChange={(event) => setqrsize(event.target.value)} />
                         <button className='generate-button' onClick={onclicking}>Generate QR Code</button>
                         <button className='download-button' onClick={download}>Download QR Code</button>
-                        <button style={{ color: "black" }} onClick={clear}>Reset</button>
+                        <button className='resetbtn' onClick={clear}>Reset</button>
                         <p style={{ textAlign: "right" }}>@By Vignesivam</p>
                     </div>
                 </div>
             </div>
+            <div className="endload" style={{ marginTop: "-50px", padding: "10px" }}>
+                {loading ? null : <ProgressBar now={connect} />}
+            </div>
+
         </>
     )
 }

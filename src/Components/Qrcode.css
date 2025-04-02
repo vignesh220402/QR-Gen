@@ -6,16 +6,12 @@
     flex-direction: column;
     align-items: center;
     font-family: "Jost", sans-serif;
-    height: 90vh;
+    height: 100vh;
 }
 .resetbtn{
     color: black;
 }
-.endload{
-    width: 500px;
-    margin-left: 500px;
 
-}
 .app-container {
     width: 800px;
     height: 500px;

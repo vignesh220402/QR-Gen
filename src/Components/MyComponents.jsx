@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import './Qrcode.css'
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import NaviBar from './NavigationBar/Navi';
 const App = () => {
     const [img, setimg] = useState("")
     const [loading, setloading] = useState(false)
@@ -13,6 +12,7 @@ const App = () => {
     const changed = useRef("")
     const changing = useRef("")
     const [connect, setconnect] = useState("")
+
     function onclicking() {
         if (!qrdata) {
             seterrorsec("Please provide data for the QR code !");
@@ -30,13 +30,14 @@ const App = () => {
             changed.current.placeholder = "Size required!"
             return;
         }
-  
+
 
         seterrorsec("");
         setloading(true)
         try {
             const url = `https://api.qrserver.com/v1/create-qr-code/?size=${qrsize}x${qrsize}&data=${encodeURIComponent(qrdata)}`
             setsuccess("Take you QR CODE")
+
             let input = document.getElementById("dataInput")
             input.style.border = "solid rgb(58, 174, 0) 2px"
             let Sizeinput = document.getElementById("sizeInput")
@@ -52,7 +53,7 @@ const App = () => {
             setloading(false)
         }
     }
-    let successs="UPLODED"
+    let successs = "UPLODED"
     function clear() {
         setimg("")
         setqrdata("")
@@ -99,7 +100,7 @@ const App = () => {
 
     return (
         <>
-        <NaviBar/>
+
             <div className="main-container">
 
                 <div className='app-container'>
@@ -118,12 +119,13 @@ const App = () => {
                         <button className='download-button' onClick={download}>Download QR Code</button>
                         <button className='resetbtn' onClick={clear}>Reset</button>
                         <p style={{ textAlign: "right" }}>@By Vignesivam</p>
+                        <div className="endload" style={{ padding: "10px" }}>
+                            <ProgressBar now={connect} label={`${successs}%`} />;
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="endload" style={{ marginTop: "-100px", padding: "10px" }}>
-            <ProgressBar now={connect} label={`${successs}%`} />;
-            </div>
+
 
         </>
     )
